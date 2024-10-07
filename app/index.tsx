@@ -3,9 +3,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { RoutesType } from "@/types";
-import Inicio from "@/screens/Inicio";
-import Login from "@/screens/Login";
-import Registro from "@/screens/Registro";
+import Inicio from "@/telas/Inicio";
+import Login from "@/telas/Login";
+import Registro from "@/telas/Registro";
 import fonts from "@/fonts";
 
 const Stack = createNativeStackNavigator<RoutesType>();
