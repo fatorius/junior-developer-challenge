@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render: InputTexto 1`] = `
+<TextInput
+  onBlur={[Function]}
+  onFocus={[Function]}
+  placeholderTextColor="#626262"
+  style={
+    [
+      {
+        "backgroundColor": "#f1f4ff",
+        "borderRadius": 9.25,
+        "fontFamily": "poppins-regular",
+        "fontSize": 22.94694968835727,
+        "marginVertical": 9.25,
+        "padding": 18.5,
+      },
+      false,
+    ]
+  }
+/>
+`;
