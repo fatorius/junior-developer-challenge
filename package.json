@@ -11,7 +11,8 @@
 		"test": "jest --passWithNoTests",
 		"watch-tests": "jest --watchAll",
 		"lint": "expo lint",
-		"format": "npx prettier . --write"
+		"format": "npx prettier . --write",
+		"prepare": "husky"
 	},
 	"jest": {
 		"preset": "jest-expo"
@@ -28,6 +29,7 @@
 		"expo-status-bar": "~1.12.1",
 		"expo-system-ui": "~3.0.7",
 		"expo-web-browser": "~13.0.3",
+		"husky": "^9.1.6",
 		"prettier": "^3.3.3",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
