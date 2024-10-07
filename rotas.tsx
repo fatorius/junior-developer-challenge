@@ -9,7 +9,8 @@ declare global {
 export type RoutesType = {
 	Inicio: undefined;
 	Login: undefined;
-	Registro: undefined;
+	Registrar: undefined;
+	Entrar: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RoutesType> =

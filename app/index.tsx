@@ -2,11 +2,12 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { RoutesType } from "@/types";
+import { RoutesType } from "@/rotas";
 import Inicio from "@/telas/Inicio";
 import Login from "@/telas/Login";
 import Registro from "@/telas/Registro";
 import fonts from "@/fonts";
+import Logado from "@/telas/Logado";
 
 const Stack = createNativeStackNavigator<RoutesType>();
 
@@ -33,8 +34,12 @@ function App() {
 						component={Login}
 					/>
 					<Stack.Screen
-						name="Registro"
+						name="Registrar"
 						component={Registro}
+					/>
+					<Stack.Screen
+						name="Entrar"
+						component={Logado}
 					/>
 				</Stack.Navigator>
 			</NavigationContainer>

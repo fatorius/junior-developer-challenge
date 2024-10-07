@@ -1,15 +1,16 @@
-import VALUES from "@/VALUES";
 import {
 	Dimensions,
 	ImageBackground,
 	SafeAreaView,
 	Text,
-	TouchableOpacity,
 	View,
 } from "react-native";
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { RoutesType } from "@/types";
+import { RoutesType } from "@/rotas";
+
+import VALUES from "@/VALUES";
+import Botao from "@/components/Botao";
 
 type Props = NativeStackScreenProps<RoutesType, "Inicio">;
 
@@ -59,9 +60,11 @@ const Inicio: React.FC<Props> = ({ navigation }) => {
 						paddingTop: VALUES.Espacamento * 6,
 						flexDirection: "row",
 					}}>
-					<TouchableOpacity
-						onPress={() => navigation.navigate("Login")}
-						style={{
+					<Botao
+						onPress={() => {
+							navigation.navigate("Login");
+						}}
+						buttonStyle={{
 							backgroundColor: VALUES.Tema.corPrimaria,
 							paddingVertical: VALUES.Espacamento * 1.5,
 							paddingHorizontal: VALUES.Espacamento * 2,
@@ -74,35 +77,32 @@ const Inicio: React.FC<Props> = ({ navigation }) => {
 							},
 							shadowOpacity: 0.3,
 							shadowRadius: VALUES.Espacamento,
-						}}>
-						<Text
-							style={{
-								fontFamily: VALUES.Fontes.negrito,
-								color: VALUES.Tema.constrastePrimario,
-								fontSize: VALUES.TamanhoFonte.large,
-								textAlign: "center",
-							}}>
-							Login
-						</Text>
-					</TouchableOpacity>
-					<TouchableOpacity
-						onPress={() => navigation.navigate("Registro")}
-						style={{
+						}}
+						textStyle={{
+							fontFamily: VALUES.Fontes.negrito,
+							color: VALUES.Tema.constrastePrimario,
+							fontSize: VALUES.TamanhoFonte.large,
+							textAlign: "center",
+						}}
+						label="Login"
+					/>
+
+					<Botao
+						onPress={() => navigation.navigate("Registrar")}
+						buttonStyle={{
 							paddingVertical: VALUES.Espacamento * 1.5,
 							paddingHorizontal: VALUES.Espacamento * 2,
 							width: "48%",
 							borderRadius: VALUES.Espacamento,
-						}}>
-						<Text
-							style={{
-								fontFamily: VALUES.Fontes.negrito,
-								color: VALUES.Tema.corDoTexto,
-								fontSize: VALUES.TamanhoFonte.large,
-								textAlign: "center",
-							}}>
-							Register
-						</Text>
-					</TouchableOpacity>
+						}}
+						textStyle={{
+							fontFamily: VALUES.Fontes.negrito,
+							color: VALUES.Tema.corDoTexto,
+							fontSize: VALUES.TamanhoFonte.large,
+							textAlign: "center",
+						}}
+						label="Cadastre-se"
+					/>
 				</View>
 			</View>
 		</SafeAreaView>

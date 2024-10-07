@@ -1,3 +1,5 @@
+import { responsiveScreenFontSize } from "react-native-responsive-dimensions";
+
 const CORES = {
 	branco: "#fff",
 	preto: "#000",
@@ -8,12 +10,12 @@ const CORES = {
 };
 
 const VALUES = {
-	Espacamento: 10,
+	Espacamento: 9.25,
 	TamanhoFonte: {
-		small: 14,
-		medium: 16,
-		large: 20,
-		xLarge: 30,
+		small: responsiveScreenFontSize(1.5),
+		medium: responsiveScreenFontSize(2),
+		large: responsiveScreenFontSize(2.25),
+		xLarge: responsiveScreenFontSize(4.5),
 		xxLarge: 35,
 	},
 	Tema: {
@@ -27,11 +29,11 @@ const VALUES = {
 		corSecundaria: CORES.azulClaro,
 		cinza: CORES.cinza,
 	},
-    Fontes: {
-        "regular": "poppins-regular",
-        "negrito": "poppins-bold",
-        "seminegrito": "poppins-semiBold",
-    }
+	Fontes: {
+		regular: "poppins-regular",
+		negrito: "poppins-bold",
+		seminegrito: "poppins-semiBold",
+	},
 };
 
 export default VALUES;
