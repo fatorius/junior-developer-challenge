@@ -1,6 +1,6 @@
 import { SafeAreaView, Text, TouchableOpacity, View } from "react-native";
 
-import React from "react";
+import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 
 import InputTexto from "../components/InputTexto";
@@ -10,10 +10,18 @@ import { RoutesType } from "@/rotas";
 
 import VALUES from "@/VALUES";
 import Botao from "@/components/Botao";
+import validateEmail from "@/utils/validateEmail";
 
 type Props = NativeStackScreenProps<RoutesType, "Login">;
 
 const Login: React.FC<Props> = ({ navigation }) => {
+	const [emailValido, setEmailValido] = useState(true);
+	const [emailMsg, setEmailMsg] = useState("");
+	const [senhaCorreta, setSenhaCorreta] = useState(true);
+
+	const [emailValue, setEmailValue] = useState("");
+	const [passwordValue, setPasswordValue] = useState("");
+
 	return (
 		<SafeAreaView>
 			<View
@@ -47,8 +55,57 @@ const Login: React.FC<Props> = ({ navigation }) => {
 					style={{
 						marginVertical: VALUES.Espacamento * 3,
 					}}>
-					<InputTexto placeholder="Email" />
-					<InputTexto placeholder="Senha" />
+					<InputTexto
+						value={emailValue}
+						onChange={(value: string) => {
+							setEmailValue(value);
+						}}
+						otherProps={{
+							placeholder: "Email",
+							errorMsg: emailValido,
+							autoComplete: "email",
+							autoCapitalize: "none",
+						}}
+					/>
+					{emailValido ? (
+						<></>
+					) : (
+						<Text
+							style={{
+								fontFamily: VALUES.Fontes.regular,
+								fontSize: VALUES.TamanhoFonte.small,
+								maxWidth: "75%",
+								color: VALUES.Tema.erro,
+							}}>
+							{emailMsg}
+						</Text>
+					)}
+					<InputTexto
+						value={passwordValue}
+						onChange={(value: string) => {
+							setPasswordValue(value);
+						}}
+						otherProps={{
+							placeholder: "Senha",
+							errorMsg: senhaCorreta,
+							secureTextEntry: true,
+							autoComplete: "current-password",
+							autoCapitalize: "none",
+						}}
+					/>
+					{senhaCorreta ? (
+						<></>
+					) : (
+						<Text
+							style={{
+								fontFamily: VALUES.Fontes.regular,
+								fontSize: VALUES.TamanhoFonte.small,
+								maxWidth: "75%",
+								color: VALUES.Tema.erro,
+							}}>
+							Senha incorreta
+						</Text>
+					)}
 				</View>
 
 				<View>
@@ -65,6 +122,26 @@ const Login: React.FC<Props> = ({ navigation }) => {
 
 				<Botao
 					onPress={() => {
+						setEmailValido(true);
+						setSenhaCorreta(true);
+
+						if (!validateEmail(emailValue)) {
+							setEmailValido(false);
+							setEmailMsg("Email inválido");
+							return;
+						}
+
+						if (emailValue !== "junior@frontend.com.br") {
+							setEmailValido(false);
+							setEmailMsg("Email não encontrado");
+							return;
+						}
+
+						if (passwordValue !== "senha123") {
+							setSenhaCorreta(false);
+							return;
+						}
+
 						navigation.navigate("Entrar");
 					}}
 					buttonStyle={{

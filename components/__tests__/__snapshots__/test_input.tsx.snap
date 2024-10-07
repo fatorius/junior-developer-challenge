@@ -4,19 +4,23 @@ exports[`Render: InputTexto 1`] = `
 <TextInput
   onBlur={[Function]}
   onFocus={[Function]}
+  placeholder="teste"
   placeholderTextColor="#626262"
   style={
     [
       {
-        "backgroundColor": "#f1f4ff",
-        "borderRadius": 9.25,
+        "backgroundColor": "#ffc2c2",
+        "borderColor": "#ff0000",
+        "borderRadius": 9,
+        "borderWidth": 3,
         "fontFamily": "poppins-regular",
         "fontSize": 22.94694968835727,
-        "marginVertical": 9.25,
-        "padding": 18.5,
+        "marginVertical": 9,
+        "padding": 18,
       },
       false,
     ]
   }
+  value=""
 />
 `;
