@@ -1,14 +1,22 @@
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
+import { useFonts } from "expo-font";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { RoutesType } from "./types";
+import { RoutesType } from "@/types";
 import Inicio from "@/screens/Inicio";
 import Login from "@/screens/Login";
 import Registro from "@/screens/Registro";
+import fonts from "@/fonts";
 
 const Stack = createNativeStackNavigator<RoutesType>();
 
 function App() {
+	const [fontesCarregadas] = useFonts(fonts);
+
+	if (!fontesCarregadas) {
+		return null;
+	}
+
 	return (
 		<SafeAreaProvider>
 			<NavigationContainer independent={true}>
