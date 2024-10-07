@@ -1,5 +1,7 @@
 import { View } from "react-native";
 
-export default function Index() {
+function App() {
 	return <View></View>;
 }
+
+export default App;
