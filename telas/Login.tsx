@@ -11,6 +11,8 @@ import { RoutesType } from "@/rotas";
 import VALUES from "@/VALUES";
 import Botao from "@/components/Botao";
 import validateEmail from "@/utils/validateEmail";
+import verificarEmail from "@/cadastros/verificarEmail";
+import verificarSenha from "@/cadastros/verificarSenha";
 
 type Props = NativeStackScreenProps<RoutesType, "Login">;
 
@@ -121,7 +123,7 @@ const Login: React.FC<Props> = ({ navigation }) => {
 				</View>
 
 				<Botao
-					onPress={() => {
+					onPress={async () => {
 						setEmailValido(true);
 						setSenhaCorreta(true);
 
@@ -131,13 +133,15 @@ const Login: React.FC<Props> = ({ navigation }) => {
 							return;
 						}
 
-						if (emailValue !== "junior@frontend.com.br") {
+						if (!(await verificarEmail(emailValue))) {
 							setEmailValido(false);
 							setEmailMsg("Email não encontrado");
 							return;
 						}
 
-						if (passwordValue !== "senha123") {
+						if (
+							!(await verificarSenha(emailValue, passwordValue))
+						) {
 							setSenhaCorreta(false);
 							return;
 						}
