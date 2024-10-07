@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render: Logado 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text
+    style={
+      {
+        "color": "#1F41BB",
+        "fontFamily": "poppins-bold",
+        "fontSize": 65.01635745034561,
+        "textAlign": "center",
+      }
+    }
+  >
+    Bem vindo! Voce está logado
+  </Text>
+</View>
+`;
