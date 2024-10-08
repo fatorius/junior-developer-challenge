@@ -24,6 +24,14 @@ const Login: React.FC<Props> = ({ navigation }) => {
 	const [emailValue, setEmailValue] = useState("");
 	const [passwordValue, setPasswordValue] = useState("");
 
+	function resetStates() {
+		setEmailValido(true);
+		setEmailMsg("");
+		setSenhaCorreta(true);
+		setEmailValue("");
+		setPasswordValue("");
+	}
+
 	return (
 		<SafeAreaView>
 			<View
@@ -146,6 +154,7 @@ const Login: React.FC<Props> = ({ navigation }) => {
 							return;
 						}
 
+						resetStates();
 						navigation.navigate("Entrar");
 					}}
 					buttonStyle={{
@@ -171,7 +180,10 @@ const Login: React.FC<Props> = ({ navigation }) => {
 				/>
 
 				<TouchableOpacity
-					onPress={() => navigation.navigate("Registrar")}
+					onPress={() => {
+						resetStates();
+						navigation.navigate("Registrar");
+					}}
 					style={{
 						padding: VALUES.Espacamento,
 					}}>

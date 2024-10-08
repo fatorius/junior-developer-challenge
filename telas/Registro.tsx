@@ -23,6 +23,18 @@ const Registro: React.FC<Props> = ({ navigation }) => {
 	const [passwordValue, setPasswordValue] = useState("");
 	const [passwordConfirmValue, setPasswordConfirmValue] = useState("");
 
+	function resetStates() {
+		setEmailMsg("");
+
+		setEmailValido(true);
+		setPasswordMatch(true);
+		setPasswordLength(true);
+
+		setEmailValue("");
+		setPasswordValue("");
+		setPasswordConfirmValue("");
+	}
+
 	return (
 		<SafeAreaView>
 			<View
@@ -192,12 +204,16 @@ const Registro: React.FC<Props> = ({ navigation }) => {
 
 						await adicionarConta(emailValue, passwordValue);
 
+						resetStates();
 						navigation.navigate("Login");
 					}}
 				/>
 
 				<TouchableOpacity
-					onPress={() => navigation.navigate("Login")}
+					onPress={() => {
+						resetStates();
+						navigation.navigate("Login");
+					}}
 					style={{
 						padding: VALUES.Espacamento,
 					}}>
