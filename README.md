@@ -142,6 +142,34 @@ Componente simples que retorna três botões referentes às formas alternativas 
 
 Este componente não possui props.
 
+## Funções úteis
+
+Algumas funções são utilizadas dentro da lógica de outros componentes. Elas estão presentes dentro da pasta `utils/`.
+
+### validateEmail(email: string) => boolean
+
+Verifica que o email é valido com base no formato da string.
+
+```javascript
+validateEmail("teste@email.com") // true
+validateEmail("teste@123") // false
+```
+
+## Armazenamento de cadastros
+
+Por se tratar de uma demonstração, este aplicativo não se conecta a algum backend ou banco de dados, portanto, 
+os dados das contas salvas são armazenados internamente. As funções que lidam com esse armazenamento estão presentes
+na pasta `cadastros/`.
+
+### adicionarConta(email: string, senha: string)
+Adiciona uma nova conta no armazenamento do aplicativo.
+
+### verificarEmail(email: string) => boolean
+Retorna `true` caso o email em questão esteja cadastrado na base de dados, e `false` caso contrário.
+
+### verificarSenha(email: string, senha: string) => boolean
+Retorna `true` caso o email esteja cadastrado e a senha esteja correta. Retorna `false` caso contrário.
+
 ## Outros comandos
 
 ```bash
