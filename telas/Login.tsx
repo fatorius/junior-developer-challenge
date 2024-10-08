@@ -1,7 +1,6 @@
 import { SafeAreaView, Text, TouchableOpacity, View } from "react-native";
 
 import React, { useState } from "react";
-import { Ionicons } from "@expo/vector-icons";
 
 import InputTexto from "../components/InputTexto";
 
@@ -13,6 +12,7 @@ import Botao from "@/components/Botao";
 import validateEmail from "@/utils/validateEmail";
 import verificarEmail from "@/cadastros/verificarEmail";
 import verificarSenha from "@/cadastros/verificarSenha";
+import Socials from "@/components/Socials";
 
 type Props = NativeStackScreenProps<RoutesType, "Login">;
 
@@ -212,52 +212,7 @@ const Login: React.FC<Props> = ({ navigation }) => {
 						Ou continue com
 					</Text>
 
-					<View
-						style={{
-							marginTop: VALUES.Espacamento,
-							flexDirection: "row",
-							justifyContent: "center",
-						}}>
-						<TouchableOpacity
-							style={{
-								padding: VALUES.Espacamento,
-								backgroundColor: VALUES.Tema.cinza,
-								borderRadius: VALUES.Espacamento / 2,
-								marginHorizontal: VALUES.Espacamento,
-							}}>
-							<Ionicons
-								name="logo-google"
-								color={VALUES.Tema.corDoTexto}
-								size={VALUES.Espacamento * 2}
-							/>
-						</TouchableOpacity>
-						<TouchableOpacity
-							style={{
-								padding: VALUES.Espacamento,
-								backgroundColor: VALUES.Tema.cinza,
-								borderRadius: VALUES.Espacamento / 2,
-								marginHorizontal: VALUES.Espacamento,
-							}}>
-							<Ionicons
-								name="logo-apple"
-								color={VALUES.Tema.corDoTexto}
-								size={VALUES.Espacamento * 2}
-							/>
-						</TouchableOpacity>
-						<TouchableOpacity
-							style={{
-								padding: VALUES.Espacamento,
-								backgroundColor: VALUES.Tema.cinza,
-								borderRadius: VALUES.Espacamento / 2,
-								marginHorizontal: VALUES.Espacamento,
-							}}>
-							<Ionicons
-								name="logo-facebook"
-								color={VALUES.Tema.corDoTexto}
-								size={VALUES.Espacamento * 2}
-							/>
-						</TouchableOpacity>
-					</View>
+					<Socials />
 				</View>
 			</View>
 		</SafeAreaView>

@@ -2,13 +2,13 @@ import InputTexto from "@/components/InputTexto";
 import { RoutesType } from "@/rotas";
 import VALUES from "@/VALUES";
 import React, { useState } from "react";
-import { Ionicons } from "@expo/vector-icons";
 import { SafeAreaView, View, Text, TouchableOpacity } from "react-native";
 import { NativeStackScreenProps } from "react-native-screens/lib/typescript/native-stack/types";
 import Botao from "@/components/Botao";
 import validateEmail from "@/utils/validateEmail";
 import adicionarConta from "@/cadastros/adicionarConta";
 import verificarEmail from "@/cadastros/verificarEmail";
+import Socials from "@/components/Socials";
 
 type Props = NativeStackScreenProps<RoutesType, "Registrar">;
 
@@ -242,52 +242,7 @@ const Registro: React.FC<Props> = ({ navigation }) => {
 						Ou continue com
 					</Text>
 
-					<View
-						style={{
-							marginTop: VALUES.Espacamento,
-							flexDirection: "row",
-							justifyContent: "center",
-						}}>
-						<TouchableOpacity
-							style={{
-								padding: VALUES.Espacamento,
-								backgroundColor: VALUES.Tema.cinza,
-								borderRadius: VALUES.Espacamento / 2,
-								marginHorizontal: VALUES.Espacamento,
-							}}>
-							<Ionicons
-								name="logo-google"
-								color={VALUES.Tema.corDoTexto}
-								size={VALUES.Espacamento * 2}
-							/>
-						</TouchableOpacity>
-						<TouchableOpacity
-							style={{
-								padding: VALUES.Espacamento,
-								backgroundColor: VALUES.Tema.cinza,
-								borderRadius: VALUES.Espacamento / 2,
-								marginHorizontal: VALUES.Espacamento,
-							}}>
-							<Ionicons
-								name="logo-apple"
-								color={VALUES.Tema.corDoTexto}
-								size={VALUES.Espacamento * 2}
-							/>
-						</TouchableOpacity>
-						<TouchableOpacity
-							style={{
-								padding: VALUES.Espacamento,
-								backgroundColor: VALUES.Tema.cinza,
-								borderRadius: VALUES.Espacamento / 2,
-								marginHorizontal: VALUES.Espacamento,
-							}}>
-							<Ionicons
-								name="logo-facebook"
-								color={VALUES.Tema.corDoTexto}
-								size={VALUES.Espacamento * 2}
-							/>
-						</TouchableOpacity>
-					</View>
+					<Socials />
 				</View>
 			</View>
 		</SafeAreaView>
